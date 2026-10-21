@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up | MyiBase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/signup.css" asp-append-version="true">
+    <script type="module" src="~/js/signup.js" asp-append-version="true"></script>
+</head>
+
+<main class="layout">
+    <section class="intro">
+        <p class="eyebrow">JOIN MYIBASE</p>
+        <h1>Build Your Online<br>Presence Today</h1>
+        <p class="lead">Create your account and get your own subdomain. Start building your website, store or brand with MyiBase.</p>
+        <div class="benefits">
+            <div class="benefit"><span class="bubble">ϟ</span><div><h3>Get Your Subdomain</h3><p>Choose a unique name for your brand</p></div></div>
+            <div class="benefit"><span class="bubble">✓</span><div><h3>Secure &amp; Reliable</h3><p>Your data is always protected</p></div></div>
+            <div class="benefit"><span class="bubble">↗</span><div><h3>Build Without Limits</h3><p>Create, grow and succeed</p></div></div>
+        </div>
+        <div class="illustration" aria-hidden="true">
+            <div class="browser"><div class="browser-top"><i></i><i></i><i></i></div><div class="site-preview"><div class="domain"><span>⌕</span> yourname.myibase.com <b>✓</b></div><div class="blocks"><div><i></i><i></i><i></i></div><div><i></i><i></i></div></div></div></div>
+            <div class="globe">◎</div><div class="plant"><i></i><i></i><i></i><i></i></div>
+        </div>
+    </section>
+    <section class="card">
+        <div class="heading"><h2>Create Your Account</h2><p>Already have an account? <a href="/home/login">Login</a></p></div>
+        <button type="button" class="google" id="googleSignup"><span class="google-g">G</span>Sign up with Google</button>
+        <div class="or"><span></span><em>OR</em><span></span></div>
+        <form id="signupForm" novalidate>
+            <div class="field"><label for="fullName">Full Name <b>*</b></label><div class="input"><span>♙</span><input id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name" required></div><small id="nameError"></small></div>
+            @* <div class="field"><label for="email">Email Address <b>*</b></label><div class="input"><span>✉</span><input id="email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required></div><small id="emailError"></small></div> *@
+
+            <div class="field">
+                <label for="email">Email <b>*</b></label>
+
+                <div class="input">
+                    <span>✉</span>
+                    <input id="email"
+                           name="email"
+                           type="email"
+                           placeholder="Enter your email address"
+                           autocomplete="email"
+                           required>
+                    <button type="button" class="btn" id="sendOtp">
+                        Send OTP
+                    </button>
+                </div>
+
+                <small class="hint">Enter your email address to receive an OTP.</small>
+                <small id="emailError"></small>
+            </div>
+
+            <div class="field">
+                <label for="otp">Verify Email OTP <b>*</b></label>
+
+                <div class="input">
+                    <span>▣</span>
+                    <input id="otp"
+                           name="otp"
+                           type="text"
+                           placeholder="Enter verification OTP"
+                           inputmode="numeric"
+                           pattern="[0-9]{6}"
+                           maxlength="6"
+                           autocomplete="one-time-code"
+                           required>
+                    @* <button type="button" class="toggle" id="verifyOtp">
+                        Verify OTP
+                    </button> *@
+                </div>
+
+                <small class="hint">Enter the 6-digit OTP sent to your email.</small>
+                <small id="otpError"></small>
+                <input type="hidden" id="emailVerified" name="emailVerified" value="false">
+            </div>
+
+
+            <div class="field"><label for="password">Password <b>*</b></label><div class="input"><span>▣</span><input id="password" name="password" type="password" placeholder="Create a strong password" autocomplete="new-password" required><button type="button" class="toggle" data-target="password" aria-label="Show password">◉</button></div><small class="hint">Use at least 8 characters.</small><small id="passwordError"></small></div>
+            <div class="field"><label for="confirmPassword">Confirm Password <b>*</b></label><div class="input"><span>▣</span><input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" autocomplete="new-password" required><button type="button" class="toggle" data-target="confirmPassword" aria-label="Show password">◉</button></div><small id="confirmError"></small></div>
+            <button class="submit" type="submit">Create Account <span>→</span></button>
+            <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+        </form>
+        <p class="terms">By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+    </section>
+</main>

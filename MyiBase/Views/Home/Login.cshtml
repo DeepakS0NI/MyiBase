@@ -1,0 +1,354 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | MyiBase</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" asp-append-version="true" href="/css/login.css">
+</head>
+
+<body>
+
+
+    <!-- MAIN -->
+
+    <main class="layout">
+
+        <!-- LEFT SECTION -->
+
+        <section class="intro">
+
+            <p class="eyebrow">
+                WELCOME BACK
+            </p>
+
+            <h1>
+                Build Your Online<br>
+                Presence With MyiBase
+            </h1>
+
+            <p class="lead">
+                Sign in to manage your subdomains, view your domains
+                and continue building your online presence.
+            </p>
+
+
+            <div class="benefits">
+
+                <div class="benefit">
+
+                    <span class="bubble">
+                        ⌁
+                    </span>
+
+                    <div>
+                        <h3>
+                            Manage Your Subdomains
+                        </h3>
+
+                        <p>
+                            Control all your MyiBase subdomains in one place
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <span class="bubble">
+                        ✓
+                    </span>
+
+                    <div>
+                        <h3>
+                            Secure Account
+                        </h3>
+
+                        <p>
+                            Your account and domain information stays protected
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <span class="bubble">
+                        ↗
+                    </span>
+
+                    <div>
+                        <h3>
+                            Keep Building
+                        </h3>
+
+                        <p>
+                            Connect your subdomain to your hosted website
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Illustration -->
+
+            <div class="illustration">
+
+                <div class="browser">
+
+                    <div class="browser-top">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <div class="site-preview">
+
+                        <div class="domain">
+
+                            <span>⌕</span>
+
+                            yourname.myibase.com
+
+                            <b>✓</b>
+
+                        </div>
+
+                        <div class="blocks">
+
+                            <div>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+
+                            <div>
+                                <i></i>
+                                <i></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="globe">
+                    ◎
+                </div>
+
+
+                <div class="plant">
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN CARD -->
+
+        <section class="card">
+
+            <div class="heading">
+
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p>
+                    Don't have an account?
+
+                    <a href="/home/signup">
+                        Create Account
+                    </a>
+                </p>
+
+            </div>
+
+
+            <!-- GOOGLE LOGIN -->
+
+            <button type="button"
+                    class="google"
+                    id="googleLogin">
+
+                <span class="google-g">
+                    G
+                </span>
+
+                <span>
+                    Continue with Google
+                </span>
+
+            </button>
+
+
+            <!-- OR -->
+
+            <div class="or">
+
+                <span></span>
+
+                <em>OR</em>
+
+                <span></span>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="loginForm" novalidate>
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label for="email">
+                        Email Address <b>*</b>
+                    </label>
+
+                    <div class="input">
+
+                        <span>
+                            ✉
+                        </span>
+
+                        <input id="email"
+                               type="email"
+                               placeholder="Enter your email address"
+                               autocomplete="email"
+                               required>
+
+                    </div>
+
+                    <small id="emailError"></small>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="field">
+
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password <b>*</b>
+                        </label>
+
+                        <a href="#" id="forgotPassword">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <div class="input">
+
+                        <span>
+                            ▣
+                        </span>
+
+                        <input id="password"
+                               type="password"
+                               placeholder="Enter your password"
+                               autocomplete="current-password"
+                               required>
+
+                        <button type="button"
+                                class="toggle"
+                                data-target="password">
+                            ◉
+                        </button>
+
+                    </div>
+
+                    <small id="passwordError"></small>
+
+                </div>
+
+
+                <!-- REMEMBER ME -->
+
+                <label class="remember">
+
+                    <input type="checkbox"
+                           id="remember">
+
+                    <span>
+                        Remember me
+                    </span>
+
+                </label>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button class="submit"
+                        type="submit">
+
+                    <span>
+                        Login to MyiBase
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <p id="formMessage"
+                   class="message"></p>
+
+            </form>
+
+
+            <p class="terms">
+
+                By continuing, you agree to our
+
+                <a href="#">
+                    Terms of Service
+                </a>
+
+                and
+
+                <a href="#">
+                    Privacy Policy
+                </a>.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/login.js" asp-append-version="true"></script>
+
+</body>
+
+</html>

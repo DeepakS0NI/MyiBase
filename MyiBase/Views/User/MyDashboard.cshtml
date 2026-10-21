@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MyiBase</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/dashboard.css" asp-append-version="true">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="index.html" class="brand">
+            <span class="brand-logo">☁</span>
+            <span>MyiBase</span>
+        </a>
+
+        <div class="user-mini">
+            <div class="avatar" id="sidebarAvatar">DS</div>
+            <div>
+                <strong id="sidebarName">Deepak Soni</strong>
+                <span id="sidebarEmail">deepak@example.com</span>
+            </div>
+        </div>
+
+        <nav class="side-nav">
+
+            <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#domains" class="nav-item" data-page="domains">
+                <span>◈</span>
+                My Subdomains
+            </a>
+
+            <a href="#dns" class="nav-item" data-page="dns">
+                <span>⌁</span>
+                DNS Settings
+            </a>
+
+            <a href="#billing" class="nav-item" data-page="billing">
+                <span>▣</span>
+                Billing
+            </a>
+
+            <a href="#profile" class="nav-item" data-page="profile">
+                <span>◎</span>
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-item">
+                <span>?</span>
+                Help & Support
+            </a>
+
+            <button class="logout" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-btn" id="menuBtn">☰</button>
+
+            <div>
+                <p class="top-label">MYIBASE ACCOUNT</p>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-btn" title="Notifications" id="notificationBtn">
+                    ♢
+                    <i></i>
+                </button>
+
+                <div class="top-user">
+                    <div class="avatar small">DS</div>
+                    <div class="top-user-text">
+                        <strong>Deepak Soni</strong>
+                        <span>Free Plan</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD PAGE -->
+        <section class="page active-page" id="dashboardPage">
+
+            <div class="welcome">
+                <div>
+                    <p class="eyebrow">WELCOME BACK</p>
+                    <h2>Hello, Deepak 👋</h2>
+                    <p>Manage your MyiBase subdomains and connect them to your websites.</p>
+                </div>
+
+                <a href="index.html#search" class="primary-btn">
+                    + Get New Subdomain
+                </a>
+            </div>
+
+
+            <!-- STATS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">◈</div>
+                    <div>
+                        <span>Active Subdomains</span>
+                        <strong>2</strong>
+                    </div>
+                    <small class="up">+1 this month</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">⌁</div>
+                    <div>
+                        <span>DNS Connected</span>
+                        <strong>2</strong>
+                    </div>
+                    <small class="up">100% connected</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <div>
+                        <span>Account Status</span>
+                        <strong class="status-text">Active</strong>
+                    </div>
+                    <small class="up">Verified account</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">₹</div>
+                    <div>
+                        <span>Total Spent</span>
+                        <strong>₹198</strong>
+                    </div>
+                    <small>Lifetime</small>
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT GRID -->
+            <div class="content-grid">
+
+                <!-- SUBDOMAINS -->
+                <div class="panel large-panel">
+
+                    <div class="panel-head">
+                        <div>
+                            <h3>Your Subdomains</h3>
+                            <p>Manage domains registered with your account.</p>
+                        </div>
+
+                        <a href="#domains" class="view-link">View all →</a>
+                    </div>
+
+                    <div class="domain-list">
+
+                        <div class="domain-row">
+
+                            <div class="domain-symbol">DS</div>
+
+                            <div class="domain-info">
+                                <strong>deepak</strong>
+                                <span>deepak.myibase.com</span>
+                            </div>
+
+                            <span class="connected">
+                                <i></i> Connected
+                            </span>
+
+                            <div class="domain-actions">
+                                <button title="Copy domain" class="copy-btn" data-domain="deepak.myibase.com">⧉</button>
+                                <button title="Manage" class="manage-btn">Manage</button>
+                            </div>
+
+                        </div>
+
+
+                        <div class="domain-row">
+
+                            <div class="domain-symbol purple-symbol">P</div>
+
+                            <div class="domain-info">
+                                <strong>portfolio</strong>
+                                <span>portfolio.myibase.com</span>
+                            </div>
+
+                            <span class="connected">
+                                <i></i> Connected
+                            </span>
+
+                            <div class="domain-actions">
+                                <button title="Copy domain" class="copy-btn" data-domain="portfolio.myibase.com">⧉</button>
+                                <button title="Manage" class="manage-btn">Manage</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="panel quick-panel">
+
+                    <div class="panel-head">
+                        <div>
+                            <h3>Quick Actions</h3>
+                            <p>Common account actions.</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <a href="index.html#search" class="quick-action">
+                            <span class="qa-icon blue">+</span>
+                            <div>
+                                <strong>Buy Subdomain</strong>
+                                <small>Find your next name</small>
+                            </div>
+                            <b>→</b>
+                        </a>
+
+                        <a href="#dns" class="quick-action">
+                            <span class="qa-icon purple">⌁</span>
+                            <div>
+                                <strong>DNS Settings</strong>
+                                <small>Connect your website</small>
+                            </div>
+                            <b>→</b>
+                        </a>
+
+                        <a href="#profile" class="quick-action">
+                            <span class="qa-icon green">◎</span>
+                            <div>
+                                <strong>Edit Profile</strong>
+                                <small>Update your information</small>
+                            </div>
+                            <b>→</b>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DNS GUIDE -->
+            <div class="panel guide-panel">
+
+                <div class="guide-icon">⌁</div>
+
+                <div class="guide-content">
+                    <span class="guide-label">GET STARTED</span>
+                    <h3>Connect your subdomain to your website</h3>
+                    <p>
+                        Your website can be hosted anywhere. Just add the DNS record
+                        provided by your hosting provider and point your MyiBase
+                        subdomain to it.
+                    </p>
+
+                    <a href="#dns" class="secondary-btn">
+                        View DNS Instructions →
+                    </a>
+                </div>
+
+                <div class="dns-preview">
+                    <div><span>Type</span><strong>CNAME</strong></div>
+                    <div><span>Name</span><strong>www</strong></div>
+                    <div><span>Target</span><strong>your-host.com</strong></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOMAINS PAGE -->
+        <section class="page" id="domainsPage">
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">DOMAIN MANAGEMENT</p>
+                    <h2>My Subdomains</h2>
+                    <p>All subdomains registered under your MyiBase account.</p>
+                </div>
+
+                <a href="index.html#search" class="primary-btn">+ Buy Subdomain</a>
+            </div>
+
+            <div class="panel table-panel">
+
+                <div class="table-head">
+                    <span>SUBDOMAIN</span>
+                    <span>STATUS</span>
+                    <span>DNS</span>
+                    <span>CREATED</span>
+                    <span>ACTION</span>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-domain">
+                        <div class="domain-symbol">DS</div>
+                        <div>
+                            <strong>deepak.myibase.com</strong>
+                            <small>Personal website</small>
+                        </div>
+                    </div>
+                    <span class="badge active">Active</span>
+                    <span class="badge connected-badge">Connected</span>
+                    <span>02 Oct 2026</span>
+                    <button class="outline-btn">Manage</button>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-domain">
+                        <div class="domain-symbol purple-symbol">P</div>
+                        <div>
+                            <strong>portfolio.myibase.com</strong>
+                            <small>Portfolio website</small>
+                        </div>
+                    </div>
+                    <span class="badge active">Active</span>
+                    <span class="badge connected-badge">Connected</span>
+                    <span>29 Sep 2026</span>
+                    <button class="outline-btn">Manage</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DNS PAGE -->
+        <section class="page" id="dnsPage">
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">DNS MANAGEMENT</p>
+                    <h2>DNS Settings</h2>
+                    <p>Connect your MyiBase subdomain to a website hosted anywhere.</p>
+                </div>
+            </div>
+
+            <div class="panel dns-panel">
+
+                <div class="dns-domain-head">
+                    <div class="domain-symbol">DS</div>
+                    <div>
+                        <strong>deepak.myibase.com</strong>
+                        <span>DNS is active</span>
+                    </div>
+                    <span class="connected"><i></i> Connected</span>
+                </div>
+
+                <div class="dns-table">
+
+                    <div class="dns-table-head">
+                        <span>TYPE</span>
+                        <span>NAME</span>
+                        <span>VALUE</span>
+                        <span>TTL</span>
+                        <span></span>
+                    </div>
+
+                    <div class="dns-row">
+                        <strong>CNAME</strong>
+                        <span>deepak</span>
+                        <span>your-host.example.com</span>
+                        <span>Auto</span>
+                        <button>•••</button>
+                    </div>
+
+                </div>
+
+                <button class="primary-btn add-record">+ Add DNS Record</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- BILLING PAGE -->
+        <section class="page" id="billingPage">
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">ACCOUNT BILLING</p>
+                    <h2>Billing</h2>
+                    <p>Manage your purchases and payment history.</p>
+                </div>
+            </div>
+
+            <div class="billing-grid">
+
+                <div class="panel plan-card">
+                    <span class="plan-label">CURRENT PLAN</span>
+                    <h3>Free Account</h3>
+                    <p>Manage your MyiBase subdomains.</p>
+                    <strong>₹0 <small>/ month</small></strong>
+                    <button class="primary-btn">View Plans</button>
+                </div>
+
+                <div class="panel payment-card">
+                    <h3>Recent Payment</h3>
+                    <div class="payment-row">
+                        <span>Subdomain purchase</span>
+                        <strong>₹99</strong>
+                    </div>
+                    <div class="payment-row">
+                        <span>29 Sep 2026</span>
+                        <span class="paid">Paid</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE PAGE -->
+        <section class="page" id="profilePage">
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">ACCOUNT SETTINGS</p>
+                    <h2>Profile</h2>
+                    <p>Manage your personal account information.</p>
+                </div>
+            </div>
+
+            <div class="panel profile-panel">
+
+                <div class="profile-header">
+                    <div class="avatar profile-avatar">DS</div>
+                    <div>
+                        <h3>Deepak Soni</h3>
+                        <p>deepak@example.com</p>
+                        <span class="verified">✓ Verified account</span>
+                    </div>
+                </div>
+
+                <form id="profileForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-field">
+                            <label>Full Name</label>
+                            <input type="text" value="Deepak Soni">
+                        </div>
+
+                        <div class="form-field">
+                            <label>Email Address</label>
+                            <input type="email" value="deepak@example.com">
+                        </div>
+
+                    </div>
+
+                    <div class="form-field">
+                        <label>Account ID</label>
+                        <input type="text" value="MYI-2026-001" disabled>
+                    </div>
+
+                    <button class="primary-btn" type="submit">Save Changes</button>
+
+                    <p id="profileMessage" class="form-message"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <span>✓</span>
+        <p id="toastText">Copied successfully.</p>
+    </div>
+
+
+    <script src="/js/dashboard.js" asp-append-version="true"></script>
+
+</body>
+</html>
