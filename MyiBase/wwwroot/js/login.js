@@ -986,14 +986,7 @@
                     data.message ||
                     "Login successful.";
 
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        "/user/mydashboard";
-
-                }, 1000);
-
+                window.location.href = 'https://localhost:7084/user/mydashboard';
 
             }
             catch (error) {

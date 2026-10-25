@@ -461,7 +461,11 @@ a {
 
 .domain-list {
     padding: 5px 23px 15px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
 
 .domain-row {
     display: flex;

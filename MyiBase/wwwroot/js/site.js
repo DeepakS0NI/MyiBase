@@ -54,15 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!response.ok) throw new Error(data.detail || "Could not check this subdomain. Please try again.");
 
             if (data === true) {
-                showSearchMessage("");
+               
                 const line = document.createElement("div");
                 line.className = "availability-result available-result";
                 const text = document.createElement("span");
                 text.textContent = `✓ ${name}.myibase.xyz is available!`;
-                const buy = document.createElement("a");
+                const buy = document.createElement("button");
                 buy.className = "btn btn-gradient btn-sm ms-2";
-                buy.href = `/checkout.html?subdomain=${encodeURIComponent(name)}`;
-                buy.textContent = "Buy now";
+                buy.id = "addtocart";
+                //buy.href = `https://localhost:7084/user/mydashboard`;
+                buy.textContent = "add to cart";
                 line.append(text, buy);
                 searchMessage.appendChild(line);
             } else {
@@ -74,8 +75,29 @@ document.addEventListener("DOMContentLoaded", () => {
             button.disabled = false;
             button.innerHTML = originalButton;
         }
+
+        document.getElementById("addtocart").addEventListener("click", () => {
+
+            
+            // Find next available ID
+            let id = 1;
+
+            while (localStorage.getItem(`subd_${id}`) !== null) {
+                id++;
+            }
+
+            // Save in localStorage
+            localStorage.setItem(`subd_${id}`, name);
+
+            console.log("Saved:", `subd_${id}`, name);
+
+            // Redirect after saving
+            window.location.href = "https://localhost:7084/user/mydashboard";
+        });
+
     });
 
+  
     document.getElementById("newsletterForm").addEventListener("submit", (event) => {
         event.preventDefault();
         const email = document.getElementById("newsletterEmail");
