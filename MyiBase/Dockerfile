@@ -2,19 +2,16 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 
 WORKDIR /src
 
-COPY ["MyiBase/MyiBase.csproj", "MyiBase/"]
+COPY ["MyiBase.csproj", "./"]
 
-RUN dotnet restore "MyiBase/MyiBase.csproj"
+RUN dotnet restore "MyiBase.csproj"
 
 COPY . .
-
-WORKDIR "/src/MyiBase"
 
 RUN dotnet publish "MyiBase.csproj" \
     -c Release \
     -o /app/publish \
     /p:UseAppHost=false
-
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 
