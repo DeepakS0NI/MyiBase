@@ -541,6 +541,24 @@ a {
     gap: 6px;
 }
 
+.add-btn,
+.delete-btn{
+    border: 1px solid #dfe7f4;
+    background: #fff;
+    color: #607499;
+    height: 30px;
+    border-radius: 7px;
+    padding: 0 9px;
+    font-size: 10px;
+}
+.add-btn:hover,
+.delete-btn:hover{
+    color: var(--blue);
+    border-color: #b9cdf6;
+}
+
+
+
 .copy-btn,
 .manage-btn {
     border: 1px solid #dfe7f4;
@@ -828,11 +846,18 @@ a {
 .dns-table-head,
 .dns-row {
     display: grid;
-    grid-template-columns: .7fr .8fr 2fr .7fr .4fr;
-    gap: 15px;
+    grid-template-columns: .7fr .8fr 1fr .8fr .4fr .4fr;
+    gap: 10px;
     align-items: center;
-    padding: 14px 23px;
+    padding: 14px 21px;
 }
+
+#target-value {
+    padding: 8px 40px;
+    margin-right:5vw;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
 
 .dns-table-head {
     background: #f8faff;
@@ -851,9 +876,12 @@ a {
 }
 
 .dns-row button {
-    border: 0;
-    background: transparent;
-    color: #7385a6;
+    border: 1px solid black;
+    border-radius:5px;
+    background-color:navajowhite;
+    color: black;
+    height:40px;
+    max-width:190px;
 }
 
 .add-record {

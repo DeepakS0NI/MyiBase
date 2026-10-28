@@ -122,30 +122,18 @@ a {
     font-size: .9rem;
 }
 
-.btn-login {
-    border: 1px solid rgba(190,203,235,.28);
-    color: #f3f5ff;
-    background: transparent;
-}
-
-    .btn-login:hover, .btn-outline-light:hover {
-        background: rgba(255,255,255,.08);
-        color: #fff;
-        border-color: #9ba8c9;
-    }
-
-.btn-gradient {
+.btn-gradient:hover {
     border: 0;
     color: white;
-    background: linear-gradient(105deg,#3979f6 0%,#6952f5 55%,#a35af4 100%);
     box-shadow: 0 8px 24px rgba(81,77,241,.2);
 }
 
-    .btn-gradient:hover {
-        color: white;
-        filter: brightness(1.1);
-        transform: translateY(-1px);
-    }
+.btn-gradient {
+    color: white;
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    background: linear-gradient(105deg,#3979f6 0%,#6952f5 55%,#a35af4 100%);
+}
 
 .hero-section {
     min-height: 575px;

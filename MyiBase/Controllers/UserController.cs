@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata;
 using System.Text.Json;
 
 namespace MyiBase.Controllers
@@ -19,30 +20,36 @@ namespace MyiBase.Controllers
             }
 
             // Web API call
-            var response = await client.GetAsync(
-                "https://localhost:7181/api/auth/me"
-            );
-
-            // API ne unauthorized/failed response diya
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                return RedirectToAction("Login", "Home");
-            }
-
-            // API response JSON
-            var json = await response.Content.ReadAsStringAsync();
-
-            // JSON -> C# object
-            var user = JsonSerializer.Deserialize<MeResponse>(
-                json,
-                new JsonSerializerOptions
+                var response = await client.GetAsync(
+                    "https://localhost:7181/api/auth/me"
+                );
+                // API ne unauthorized/failed response diya
+                if (!response.IsSuccessStatusCode)
                 {
-                    PropertyNameCaseInsensitive = true
+                    return RedirectToAction("Login", "Home");
                 }
-            );
 
-            // ViewBag ke through View ko data bhejo
-            ViewBag.UserData = user;
+                // API response JSON
+                var json = await response.Content.ReadAsStringAsync();
+
+                // JSON -> C# object
+                var user = JsonSerializer.Deserialize<MeResponse>(
+                    json,
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    }
+                );
+
+                // ViewBag ke through View ko data bhejo
+                ViewBag.UserData = user;
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("login", "home");
+            }
 
             return View();
         }
@@ -55,6 +62,10 @@ namespace MyiBase.Controllers
         public string? email { get; set; }
 
         public List<SubdomainResponse>? subdomains { get; set; }
+
+        public int User_Subd_Count { get; set; }
+
+        public int User_total_spend { get; set; }
     }
 
     public class SubdomainResponse
@@ -62,5 +73,9 @@ namespace MyiBase.Controllers
         public int id { get; set; }
 
         public string? subd { get; set; }
+
+        public string? target { get; set; }
+
+        public DateTime createdat { get; set; }
     }
 }

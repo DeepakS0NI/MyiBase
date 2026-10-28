@@ -9,6 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
@@ -38,7 +39,7 @@
         <div class="user-mini">
 
             <div class="avatar" id="sidebarAvatar">
-                DS
+                User
             </div>
 
             <div>
@@ -89,24 +90,16 @@
             </a>
 
 
-            <a href="#billing"
+            @* <a href="#billing"
                class="nav-item"
                data-page="billing">
 
                 <span>▣</span>
                 Billing
 
-            </a>
+            </a> *@
 
 
-            <a href="#profile"
-               class="nav-item"
-               data-page="profile">
-
-                <span>◎</span>
-                Profile @ViewBag.UserData.id
-
-            </a>
 
         </nav>
 
@@ -256,7 +249,7 @@
                 </div>
 
 
-                <a href="index.html#search"
+                <a href="https://localhost:7084/home"
                    class="primary-btn">
 
                     + Get New Subdomain
@@ -286,13 +279,13 @@
                         </span>
 
                         <strong>
-                            2
+                            @ViewBag.UserData.User_Subd_Count
                         </strong>
 
                     </div>
 
                     <small class="up">
-                        +1 this month
+                        @* +1 this month *@
                     </small>
 
                 </div>
@@ -311,13 +304,22 @@
                         </span>
 
                         <strong>
-                            2
+                            @{int dns =0;
+                                foreach (var subdomain in ViewBag.UserData.subdomains)
+                            {
+                                if(subdomain.target == null)
+                                {
+                                     dns = +1;
+                                }
+                            }
+                            }
+                            @dns
                         </strong>
 
                     </div>
 
                     <small class="up">
-                        100% connected
+                        connected
                     </small>
 
                 </div>
@@ -361,7 +363,7 @@
                         </span>
 
                         <strong>
-                            ₹198
+                            @ViewBag.UserData.User_total_spend
                         </strong>
 
                     </div>
@@ -433,30 +435,37 @@
                                     </strong>
 
                                     <span>
-                                        @($"{subdomain.subd}.myibase.com")
+                                        @($"{subdomain.subd}.myibase.xyz")
                                     </span>
 
                                 </div>
 
-                                <span class="connected">
-
+                                @if(subdomain.target == null)
+                                {
+                                    <span class="connected" style="background: #ffedb5;">
                                     <i></i>
-                                    Connected
-
-                                </span>
-
+                                    Disconnected                                 
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="connected">
+                                        <i></i>
+                                        Connected
+                                    </span>
+                                }
                                 <div class="domain-actions">
 
                                     <button title="Copy domain"
                                             class="copy-btn"
-                                            data-domain="@($"{subdomain.subd}.myibase.com")">
+                                            data-domain="@($"{subdomain.subd}.myibase.xyz")">
 
                                         ⧉
 
                                     </button>
 
                                     <button title="Manage"
-                                            class="manage-btn">
+                                            class="manage-btn outline-btn">
 
                                         Manage
 
@@ -498,7 +507,7 @@
                     <div class="quick-actions">
 
 
-                        <a href="index.html#search"
+                        <a href="https://localhost:7084/home"
                            class="quick-action">
 
                             <span class="qa-icon blue">
@@ -550,30 +559,7 @@
                         </a>
 
 
-                        <a href="#profile"
-                           class="quick-action">
-
-                            <span class="qa-icon green">
-                                ◎
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Edit Profile
-                                </strong>
-
-                                <small>
-                                    Update your information
-                                </small>
-
-                            </div>
-
-                            <b>
-                                →
-                            </b>
-
-                        </a>
+                      
 
                     </div>
 
@@ -700,7 +686,7 @@
                 </div>
 
 
-                <a href="index.html#search"
+                <a href="https://localhost:7084/home"
                    class="primary-btn">
 
                     + Buy Subdomain
@@ -736,93 +722,65 @@
 
                 </div>
 
+                   @foreach (var subdomain in ViewBag.UserData.subdomains)
+                {
+                    <div class="table-row">
 
-                <div class="table-row">
+                        <div class="table-domain">
 
-                    <div class="table-domain">
+                            <div class="domain-symbol">
+                                @subdomain.subd.Substring(0, 1).ToUpper()
+                            </div>
 
-                        <div class="domain-symbol">
-                            DS
+                            <div>
+
+                                <strong>
+                                    @subdomain.subd
+                                </strong>
+
+                                <small>
+                                    @($"{subdomain.subd}.myibase.xyz")
+                                </small>
+
+                            </div>
+
                         </div>
 
-                        <div>
+                        <span class="badge active">
+                            Active
+                        </span>
 
-                            <strong>
-                                deepak.myibase.com
-                            </strong>
 
-                            <small>
-                                Personal website
-                            </small>
+                        @if (subdomain.target == null)
+                        {
+                            <span class="badge connected-badge" style="background: #ffedb5;">
+                                
+                                Disconnected
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge connected-badge">
+                               
+                                Connected
+                            </span>
+                        }
 
-                        </div>
+                        <span>
+                            @subdomain.createdat
+                        </span>
+
+                        <button class="outline-btn">
+                            Manage
+                        </button>
 
                     </div>
 
+                }
 
-                    <span class="badge active">
-                        Active
-                    </span>
-
-                    <span class="badge connected-badge">
-                        Connected
-                    </span>
-
-                    <span>
-                        02 Oct 2026
-                    </span>
-
-
-                    <button class="outline-btn">
-                        Manage
-                    </button>
-
-                </div>
-
-
-                <div class="table-row">
-
-                    <div class="table-domain">
-
-                        <div class="domain-symbol purple-symbol">
-                            P
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                portfolio.myibase.com
-                            </strong>
-
-                            <small>
-                                Portfolio website
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                    <span class="badge active">
-                        Active
-                    </span>
-
-                    <span class="badge connected-badge">
-                        Connected
-                    </span>
-
-                    <span>
-                        29 Sep 2026
-                    </span>
-
-
-                    <button class="outline-btn">
-                        Manage
-                    </button>
-
-                </div>
-
+          
             </div>
+
 
         </section>
 
@@ -858,31 +816,51 @@
 
             <div class="panel dns-panel">
 
+               @foreach (var subdomain in ViewBag.UserData.subdomains)
+                {
+
                 <div class="dns-domain-head">
 
                     <div class="domain-symbol">
-                        DS
+                            @subdomain.subd.Substring(0, 1).ToUpper()
                     </div>
 
                     <div>
 
                         <strong>
-                            deepak.myibase.com
+                                @($"{subdomain.subd}.myibase.xyz")
                         </strong>
 
+                        @if (subdomain.target == null)
+                        {       
+                        <span>
+                            DNS is ready to connect
+                        </span>
+                        }
+                        else
+                        {
                         <span>
                             DNS is active
                         </span>
+                        }
 
                     </div>
 
-                    <span class="connected">
-
-                        <i></i>
-                        Connected
-
-                    </span>
-
+                   
+                    @if (subdomain.target == null)
+                    {
+                            <span class="connected" style="background: #ffedb5;">
+                            <i></i>
+                            Disconnected
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="connected">
+                            <i></i>
+                            Connected
+                        </span>
+                    }
                 </div>
 
 
@@ -906,44 +884,75 @@
                             TTL
                         </span>
 
-                        <span></span>
+                        <span>
+                           
+                        </span>
 
                     </div>
 
 
-                    <div class="dns-row">
+                           
+                      @if (subdomain.target == null)
+                        {
+                            
+                            <div class="dns-row">
 
-                        <strong>
-                            CNAME
-                        </strong>
+                                <strong>
+                                    CNAME
+                                </strong>
 
-                        <span>
-                            deepak
-                        </span>
+                                <span>
+                                    @subdomain.subd
+                                </span>
 
-                        <span>
-                            your-host.example.com
-                        </span>
+                                <input id="target-value" data-subd="@subdomain.subd" type="text" name="name" value="" placeholder="enter your target url" width="100" />
 
-                        <span>
-                            Auto
-                        </span>
+                                <span>
+                                    Auto
+                                </span>
 
-                        <button>
-                            •••
-                        </button>
+                                <span>
+                                <button class="add-record "  >
 
-                    </div>
+                                    Save_Record
 
+                                </button>
+                                </span>
+
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="dns-row">
+
+                                <strong>
+                                    CNAME
+                                </strong>
+
+                                <span>
+                                    @subdomain.subd
+                                </span>
+
+                                <input id="target-value" data-subd="@subdomain.subd" type="text" name="name" value="@subdomain.target" placeholder="enter your target url" width="100" readonly />
+
+                                <span>
+                                    Auto
+                                </span>
+
+                                <span>
+                                <button class="delete-record" data-subd="@subdomain.subd" >
+
+                                    delete_Record
+
+                                </button>
+                                </span>
+
+                            </div>
+                        }
+                                                      
                 </div>
 
-
-                <button class="primary-btn add-record">
-
-                    + Add DNS Record
-
-                </button>
-
+                }
             </div>
 
         </section>
@@ -953,7 +962,7 @@
         <!-- BILLING PAGE -->
         <!-- ============================================ -->
 
-        <section class="page"
+        @* <section class="page"
                  id="billingPage">
 
             <div class="section-title">
@@ -1045,128 +1054,7 @@
 
             </div>
 
-        </section>
-
-
-        <!-- ============================================ -->
-        <!-- PROFILE PAGE -->
-        <!-- ============================================ -->
-
-        <section class="page"
-                 id="profilePage">
-
-            <div class="section-title">
-
-                <div>
-
-                    <p class="eyebrow">
-                        ACCOUNT SETTINGS
-                    </p>
-
-                    <h2>
-                        Profile
-                    </h2>
-
-                    <p>
-                        Manage your personal
-                        account information.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="panel profile-panel">
-
-                <div class="profile-header">
-
-                    <div class="avatar profile-avatar">
-                        DS
-                    </div>
-
-                    <div>
-
-                        <h3 id="profileName">
-                            Loading...
-                        </h3>
-
-                        <p id="profileEmail">
-                            Loading...
-                        </p>
-
-                        <span class="verified">
-                            ✓ Verified account
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <form id="profileForm">
-
-                    <div class="form-grid">
-
-
-                        <div class="form-field">
-
-                            <label>
-                                Full Name
-                            </label>
-
-                            <input type="text"
-                                   id="profileFullName"
-                                   value="">
-
-                        </div>
-
-
-                        <div class="form-field">
-
-                            <label>
-                                Email Address
-                            </label>
-
-                            <input type="email"
-                                   id="profileEmailInput"
-                                   value="">
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-field">
-
-                        <label>
-                            Account ID
-                        </label>
-
-                        <input type="text"
-                               value="MYI-2026-001"
-                               disabled>
-
-                    </div>
-
-
-                    <button class="primary-btn"
-                            type="submit">
-
-                        Save Changes
-
-                    </button>
-
-
-                    <p id="profileMessage"
-                       class="form-message">
-                    </p>
-
-                </form>
-
-            </div>
-
-        </section>
+        </section> *@
 
     </main>
 
@@ -1196,6 +1084,5 @@
     <script src="/js/dashboard.js"
             asp-append-version="true">
     </script>
-
 </body>
 </html>

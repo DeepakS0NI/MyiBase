@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </strong>
 
                 <span>
-                    ${name}.myibase.com
+                    ${name}.myibase.xyz
                 </span>
 
             </div>
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button
                     title="Copy domain"
                     class="copy-btn"
-                    data-domain="${name}.myibase.com">
+                    data-domain="${name}.myibase.xyz">
 
                     ⧉
 
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // MANAGE BUTTONS
     // ============================================
 
-    document.querySelectorAll("#manage-btn, .outline-btn")
+    document.querySelectorAll("#manage-btn")
         .forEach(button => {
 
             button.addEventListener("click", () => {
@@ -248,22 +248,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+    document.querySelectorAll('.outline-btn').forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            window.location.href = "https://localhost:7084/user/mydashboard#dns";
+
+        });
+
+    });
 
     // ============================================
     // ADD DNS RECORD
     // ============================================
-
+    var target = document.getElementById("target-value");
+    
     document
         .querySelector(".add-record")
         ?.addEventListener("click", () => {
+            target.readOnly = true;
 
-            showToast(
-                "DNS record form will open here."
-            );
+            var response =  fetch('https://localhost:7181/api/cloudflare/create-subdomain', {
+                method: 'POST',
+                credentials: "include",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    subdomain: target.dataset.subd,
+                    target: target.value
+                })
 
+            })
+
+
+            window.location.href = "http://localhost:7084/user/mydashboard#dns";
+
+            
         });
 
+    var deleted = document.querySelector(".delete-record");
 
+    document
+        .querySelector(".delete-record")
+        ?.addEventListener("click", () => {
+
+            var subd = deleted.dataset.subd;
+
+            var response = fetch(
+                `https://localhost:7181/api/cloudflare/delete/${subd}`,
+                {
+                    method: 'DELETE',
+                    credentials: "include"
+                }
+            );
+            
+            window.location.href = "http://localhost:7084/user/mydashboard#dns";
+
+        });
+     
     // ============================================
     // NOTIFICATION
     // ============================================
