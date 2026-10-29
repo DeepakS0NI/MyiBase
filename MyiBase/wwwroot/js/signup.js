@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const SIGNUP_API_URL =
-        "https://localhost:7181/api/Auth/register";
+        "https://api.myibase.xyz/api/Auth/register";
 
     const SEND_OTP_API_URL =
-        "https://localhost:7181/api/email-otp/send";
+        "https://api.myibase.xyz/api/email-otp/send";
 
     // Show/hide password
     document.querySelectorAll(".toggle").forEach(button => {

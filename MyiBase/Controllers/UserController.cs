@@ -23,7 +23,7 @@ namespace MyiBase.Controllers
             try
             {
                 var response = await client.GetAsync(
-                    "https://localhost:7181/api/auth/me"
+                    "https://api.myibase.xyz/api/auth/me"
                 );
                 // API ne unauthorized/failed response diya
                 if (!response.IsSuccessStatusCode)

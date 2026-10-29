@@ -22,13 +22,13 @@
     // ============================================
 
     const LOGIN_API_URL =
-        "https://localhost:7181/api/Auth/login";
+        "https://api.myibase.xyz/api/Auth/login";
 
     const SEND_OTP_API_URL =
-        "https://localhost:7181/api/email-otp/send";
+        "https://api.myibase.xyz/api/email-otp/send";
 
     const FORGOT_PASSWORD_API_URL =
-        "https://localhost:7181/api/Auth/forget-password";
+        "https://api.myibase.xyz/api/Auth/forget-password";
 
 
     // ============================================
@@ -986,7 +986,7 @@
                     data.message ||
                     "Login successful.";
 
-                window.location.href = 'https://localhost:7084/user/mydashboard';
+                window.location.href = 'https://myibase.xyz/user/mydashboard';
 
             }
             catch (error) {

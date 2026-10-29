@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const toast = window.bootstrap ? bootstrap.Toast.getOrCreateInstance(toastEl) : null;
 
     // Change this to your deployed FastAPI URL before production.
-    const API_BASE_URL = "https://localhost:7181";
+    const API_BASE_URL = "https://api.myibase.xyz";
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const buy = document.createElement("button");
                 buy.className = "btn btn-gradient btn-sm ms-2";
                 buy.id = "addtocart";
-                //buy.href = `https://localhost:7084/user/mydashboard`;
+                //buy.href = `https://myibase.xyz/user/mydashboard`;
                 buy.textContent = "add to cart";
                 line.append(text, buy);
                 searchMessage.appendChild(line);
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Saved:", `subd_${id}`, name);
 
             // Redirect after saving
-            window.location.href = "https://localhost:7084/user/mydashboard";
+            window.location.href = "https://myibase.xyz/user/mydashboard";
         });
 
     });

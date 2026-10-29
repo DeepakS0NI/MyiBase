@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         button.addEventListener("click", () => {
 
-            window.location.href = "https://localhost:7084/user/mydashboard#dns";
+            window.location.href = "https://myibase.xyz/user/mydashboard#dns";
 
         });
 
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ?.addEventListener("click", () => {
             target.readOnly = true;
 
-            var response =  fetch('https://localhost:7181/api/cloudflare/create-subdomain', {
+            var response =  fetch('https://api.myibase.xyz/api/cloudflare/create-subdomain', {
                 method: 'POST',
                 credentials: "include",
                 headers: {
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
 
-            window.location.href = "http://localhost:7084/user/mydashboard#dns";
+            window.location.href = "http://myibase.xyz/user/mydashboard#dns";
 
             
         });
@@ -296,14 +296,14 @@ document.addEventListener("DOMContentLoaded", () => {
             var subd = deleted.dataset.subd;
 
             var response = fetch(
-                `https://localhost:7181/api/cloudflare/delete/${subd}`,
+                `https://api.myibase.xyz/api/cloudflare/delete/${subd}`,
                 {
                     method: 'DELETE',
                     credentials: "include"
                 }
             );
             
-            window.location.href = "http://localhost:7084/user/mydashboard#dns";
+            window.location.href = "http://myibase.xyz/user/mydashboard#dns";
 
         });
      
@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
 
                 await fetch(
-                    "https://localhost:7181/api/Auth/logout",
+                    "https://api.myibase.xyz/api/Auth/logout",
                     {
                         method: "POST",
                         credentials: "include",
@@ -419,7 +419,7 @@ async function loadCurrentUser() {
     try {
 
         const response = await fetch(
-            "https://localhost:7181/api/Auth/me",
+            "https://api.myibase.xyz/api/Auth/me",
             {
                 method: "GET",
 
@@ -517,7 +517,7 @@ async function loadCurrentUser() {
 // ============================================
 
 const API_URL =
-    "https://localhost:7181";
+    "https://api.myibase.xyz";
 
 
 // ============================================
@@ -909,7 +909,7 @@ async function loadCurrentUser() {
     try {
 
         const response = await fetch(
-            "https://localhost:7181/api/Auth/me",
+            "https://api.myibase.xyz/api/Auth/me",
             {
                 method: "GET",
 
